@@ -52,58 +52,32 @@ void draw() {
 
   for (int y = 1; y < height - 1; y++) {
     for (int x = 1; x < width - 1; x++) {
-      float[] currentMatrix = {
-        r[x - 1 + (y - 1) * width], 
-        r[x + (y - 1) * width], 
-        r[x + 1 + (y - 1) * width], 
-        r[x - 1 + y * width], 
-        r[x + y * width], 
-        r[x + 1 + y * width], 
-        r[x - 1 + (y + 1) * width], 
-        r[x + (y + 1) * width], 
-        r[x + 1 + (y + 1) * width]
-      };
-      for (int i = 0; i < 9; i++) {
-        deltaX[x + y * width] += matrixX[i] * currentMatrix[i];
-        deltaY[x + y * width] += matrixY[i] * currentMatrix[i];
-      }
-      currentMatrix = new float[]{
-        g[x - 1 + (y - 1) * width], 
-        g[x + (y - 1) * width], 
-        g[x + 1 + (y - 1) * width], 
-        g[x - 1 + y * width], 
-        g[x + y * width], 
-        g[x + 1 + y * width], 
-        g[x - 1 + (y + 1) * width], 
-        g[x + (y + 1) * width], 
-        g[x + 1 + (y + 1) * width]
-      };
-      for (int i = 0; i < 9; i++) {
-        deltaX[x + y * width] += matrixX[i] * currentMatrix[i];
-        deltaY[x + y * width] += matrixY[i] * currentMatrix[i];
-      }
-      currentMatrix = new float[]{
-        b[x - 1 + (y - 1) * width], 
-        b[x + (y - 1) * width], 
-        b[x + 1 + (y - 1) * width], 
-        b[x - 1 + y * width], 
-        b[x + y * width], 
-        b[x + 1 + y * width], 
-        b[x - 1 + (y + 1) * width], 
-        b[x + (y + 1) * width], 
-        b[x + 1 + (y + 1) * width]
-      };
-      for (int i = 0; i < 9; i++) {
-        deltaX[x + y * width] += matrixX[i] * currentMatrix[i];
-        deltaY[x + y * width] += matrixY[i] * currentMatrix[i];
-      }
+      int loc = x + y * width;
+      // delta R
+      float[] currentMatrix = getSurroundings(r, x, y);
+      float deltaXHere = dotProduct(matrixX, currentMatrix);
+      float deltaYHere = dotProduct(matrixY, currentMatrix);
+      deltaX[loc] += abs(deltaXHere);
+      deltaY[loc] += abs(deltaYHere);
+      // delta G
+      currentMatrix = currentMatrix = getSurroundings(g, x, y);
+      deltaXHere = dotProduct(matrixX, currentMatrix);
+      deltaYHere = dotProduct(matrixY, currentMatrix);
+      deltaX[loc] += abs(deltaXHere);
+      deltaY[loc] += abs(deltaYHere);
+      // deltaB
+      currentMatrix = getSurroundings(b, x, y);
+      deltaXHere = dotProduct(matrixX, currentMatrix);
+      deltaYHere = dotProduct(matrixY, currentMatrix);
+      deltaX[loc] += abs(deltaXHere);
+      deltaY[loc] += abs(deltaYHere);
     }
   }
 
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
       int loc = x + y * width;
-      if (abs(deltaX[loc]) + abs(deltaY[loc]) > threshold) {
+      if (deltaX[loc] + deltaY[loc] > threshold) {
         cam.pixels[loc] = color(0, 0, 0);
       } else {
         cam.pixels[loc] = color(255, 255, 255);
@@ -113,4 +87,26 @@ void draw() {
 
   cam.updatePixels();
   background(cam);
+}
+
+float[] getSurroundings(float[] all, int x, int y) {
+  return new float[]{
+        all[x - 1 + (y - 1) * width], 
+        all[x + (y - 1) * width], 
+        all[x + 1 + (y - 1) * width], 
+        all[x - 1 + y * width], 
+        all[x + y * width], 
+        all[x + 1 + y * width], 
+        all[x - 1 + (y + 1) * width], 
+        all[x + (y + 1) * width], 
+        all[x + 1 + (y + 1) * width]
+      };
+}
+
+float dotProduct(float[] vector1, float[] vector2) {
+  float result = 0;
+  for (int i = 0 ; i < vector1.length ; i++) {
+    result += vector1[i] * vector2[i];
+  }
+  return result;
 }

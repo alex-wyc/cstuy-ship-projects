@@ -115,7 +115,7 @@ float dotProduct(float[] vector1, float[] vector2) {
 }
 
 void keyTyped() {
-    if (key=='u') {
+    if (key == 'u') {
         threshold = threshold + 1;
     }
     if (key == 'd') {

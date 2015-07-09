@@ -1,0 +1,4 @@
+                float currentBrightness = brightness(pixels[i + y *
+                width]);.FALKJSHFKLJSADHKLFAHLKJASDHFLKJADHJFAHADJSKHKJLFDSAHFDAJKHDAJSHFJKASDHJKFASGJHFDKSGAKJSD
+
+##THIS IS WHERE THE PROJECT GOES!!!

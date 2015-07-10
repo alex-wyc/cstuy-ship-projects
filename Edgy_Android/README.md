@@ -8,7 +8,7 @@ It currently runs at a VERY low fram rate, but is still very cool and produces
 good results like the ones below:
 
 ![Edges of Empire State Building 0]
-(./Screenshot_2015-07-10-16-42-46.png)
+(./Screenshot_2015-07-10-16-34-55.png)
 
 ![Edges of Empire State Building 1]
 (./Screenshot_2015-07-10-16-42-46.png)

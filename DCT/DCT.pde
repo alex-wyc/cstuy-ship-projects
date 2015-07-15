@@ -1,11 +1,18 @@
 boolean transformed = false;
 
+float[][] r;
+float[][] g;
+float[][] b;
+
 void setup() {
     size(300, 300);
-    PImage img = loadImage("./image.png");
+    PImage img = loadImage("./superoctocat.jpg");
     img.resize(300, 300);
     background(img);
     updatePixels();
+    r = new float[width][height];
+    g = new float[width][height];
+    b = new float[width][height];
 }
 
 void draw() {
@@ -26,18 +33,31 @@ void keyTyped() {
         }
         transformed = !(transformed);
     }
+
+    if (key == 'h') {
+        DCT();
+        highPass(r, 80);
+        highPass(g, 80);
+        highPass(b, 80);
+        invDCT();
+   }
+
+   if (key == 'l') {
+        DCT();
+        lowPass(r, 10);
+        lowPass(g, 10);
+        lowPass(b, 10);
+        invDCT();
+   }
 }
 
 void DCT() {
     loadPixels();
-    float[][] r = new float[width][height];
-    float[][] g = new float[width][height];
-    float[][] b = new float[width][height];
     for (int y = 0 ; y < height ; y++) {
         for (int x = 0 ; x < width ; x++) {
             r[y][x] = map(red(pixels[x + y * width]), 0, 255, 0, 1);
-            g[y][x] = map(red(pixels[x + y * width]), 0, 255, 0, 1);
-            b[y][x] = map(red(pixels[x + y * width]), 0, 255, 0, 1);
+            g[y][x] = map(green(pixels[x + y * width]), 0, 255, 0, 1);
+            b[y][x] = map(blue(pixels[x + y * width]), 0, 255, 0, 1);
         }
     }
 
@@ -48,15 +68,14 @@ void DCT() {
     b = DCTHelper(b);
     println("blue done");
 
-    halfShift(r);
-    halfShift(g);
-    halfShift(b);
-
     for (int y = 0 ; y < height ; y++) {
         for (int x = 0 ; x < width ; x++) {
-            float red = map(r[y][x], 0, 60771, 0, 255);
-            float green = map(g[y][x], 0, 60771, 0, 255);
-            float blue = map(b[y][x], 0, 60771, 0, 255);
+            //float red = map(r[y][x], -width*height, width*height, 0, 255);
+            //float green = map(g[y][x], -width*height, width*height, 0, 255);
+            //float blue = map(b[y][x], -width*height, width*height, 0, 255);
+            float red = map(log(r[y][x]), 0, log(5000), 0, 255);
+            float green = map(log(g[y][x]), 0, log(5000), 0, 255);
+            float blue = map(log(b[y][x]), 0, log(5000), 0, 255);
             pixels[x + y * width] = color(red, green, blue);
         }
     }
@@ -74,7 +93,7 @@ float[][] DCTHelper(float[][] input) {
         for (int x = 0 ; x < w ; x++) {
             float result = 0;
             for (int i = 0 ; i < w ; i++) {
-                result += input[y][i] * cos(PI * (i + 0.5) * x);
+                result += input[y][i] * cos(PI * (i + 0.5) * x / w);
             }
             newline[x] = result;
         }
@@ -89,7 +108,7 @@ float[][] DCTHelper(float[][] input) {
         for (int y = 0 ; y < h ; y++) {
             float result = 0;
             for (int i = 0 ; i < h ; i++) {
-                result += output1[i][x] * cos(PI * (i + 0.5) * y);
+                result += output1[i][x] * cos(PI * (i + 0.5) * y / h);
             }
             newline[y] = result;
             results[x + y * width] = result;
@@ -118,21 +137,6 @@ float[][] DCTHelper(float[][] input) {
 
 void invDCT() {
     loadPixels();
-    float[][] r = new float[width][height];
-    float[][] g = new float[width][height];
-    float[][] b = new float[width][height];
-    for (int y = 0 ; y < height ; y++) {
-        for (int x = 0 ; x < width ; x++) {
-            r[y][x] = map(red(pixels[x + y * width]), 0, 255, 0, 1);
-            g[y][x] = map(red(pixels[x + y * width]), 0, 255, 0, 1);
-            b[y][x] = map(red(pixels[x + y * width]), 0, 255, 0, 1);
-        }
-    }
-
-    halfShift(r);
-    halfShift(g);
-    halfShift(b);
-
     r = invDCTHelper(r);
     println("red done");
     g = invDCTHelper(g);
@@ -142,9 +146,9 @@ void invDCT() {
 
     for (int y = 0 ; y < height ; y++) {
         for (int x = 0 ; x < width ; x++) {
-            float red = map(r[y][x], 11142.887, 11143.486, 0, 255);
-            float green = map(g[y][x], 11142.887, 11143.486, 0, 255);
-            float blue = map(b[y][x], 11142.887, 11143.486, 0, 255);
+            float red = map(r[y][x], 0, 1, 0, 255);
+            float green = map(g[y][x], 0, 1, 0, 255);
+            float blue = map(b[y][x], 0, 1, 0, 255);
             pixels[x + y * width] = color(red, green, blue);
         }
     }
@@ -160,9 +164,9 @@ float[][] invDCTHelper(float[][] input) {
     float[] newline = new float[h];
     for (int x = 0 ; x < w ; x++) {
         for (int y = 0 ; y < h ; y++) {
-            float result = input[0][x] / 2;
+            float result = input[0][x] / h;
             for (int i = 1 ; i < h ; i++) {
-                result += input[i][x] * cos(PI * i * (y + 0.5));
+                result += 2 * input[i][x] * cos(PI * i * (y + 0.5) / h) / h;
             }
             newline[y] = result;
             //println(result);
@@ -177,9 +181,9 @@ float[][] invDCTHelper(float[][] input) {
     newline = new float[w];
     for (int y = 0 ; y < h ; y++) {
         for (int x = 0 ; x < w ; x++) {
-            float result = output1[y][0] / 2;
+            float result = output1[y][0] / w;
             for (int i = 1 ; i < w ; i++) {
-                result += output1[y][i] * cos(PI * i * (x + 0.5));
+                result += 2 * output1[y][i] * cos(PI * i * (x + 0.5) / w) / w;
             }
             newline[x] = result;
             results[x + y * width] = result;
@@ -204,18 +208,26 @@ float[][] invDCTHelper(float[][] input) {
     return output2;
 }
 
+void highPass(float[][] arr, float r) {
+    for (int y = 0 ; y < arr.length ; y++) {
+        for (int x = 0 ; x < arr[0].length ; x++) {
+            if (x == 0 && y == 0) {
+                arr[y][x] = width * height / 2;
+                continue;
+            }
+            if (x * x + y * y < r * r) {
+                arr[y][x] = 0;
+            }
+        }
+    }
+}
 
-void halfShift(float[][] data) {
-    int w = data[0].length;
-    int h = data.length;
-    for (int y = 0 ; y < h / 2 ; y++) {
-        for (int x = 0 ; x < w ; x++) {
-            int xp = (x + w / 2) % w;
-            int yp = y + h / 2;
-            float temp;
-            temp = data[y][x];
-            data[y][x] = data[yp][xp];
-            data[yp][xp] = temp;
+void lowPass(float[][] arr, float r) {
+    for (int y = 0 ; y < arr.length ; y++) {
+        for (int x = 0 ; x < arr[0].length ; x++) {
+            if (x * x + y * y > r * r) {
+                arr[y][x] = 0;
+            }
         }
     }
 }

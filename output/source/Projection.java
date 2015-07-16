@@ -45,21 +45,30 @@ public void setup() {
     projection = createImage(projWidth, projHeight, RGB);
     updateTMatrix();
 
-    float[][] testMatrix1 = new float[][] {
-        {2, -1, 0},
-        {3, -5, 2},
-        {1, 4, -2}
-    };
-    float[][] identity = new float[][] {
-        {3, -2, 5},
-        {0, -1, 6},
-        {-4, 2, -1}
-    };
+    //float[][] testMatrix1 = new float[][] {
+    //    {2, -1, 0},
+    //    {3, -5, 2},
+    //    {1, 4, -2}
+    //};
+    //float[][] identity = new float[][] {
+    //    {3, -2, 5},
+    //    {0, -1, 6},
+    //    {-4, 2, -1}
+    //};
+    //float[][] TM4 = inverseMatrix3x3(testMatrix1);
 
-    float[][] result = matrixProduct3x3(testMatrix1, identity);
-    for (int i = 0 ; i < 3; i++) {
-        println(Arrays.toString(result[i]));
-    }
+    //float[][] result = matrixProduct3x3(testMatrix1, TM4);
+    //for (int i = 0 ; i < 3; i++) {
+    //    println(Arrays.toString(result[i]));
+    //}
+
+    //float[][] TM2 = QMatrix(1, 2, 3, 4, 5, 7, 36, 78);
+    //float[][] TM3 = {{1, 0, 1}, {0, 1, 1}, {0, 0, 1}};
+    //result = matrixProduct3x3(TM2, TM3);
+    //println("" + result[0][0] / result[2][0] + " " + result[1][0] / result[2][0]);
+    //println("" + result[0][1] / result[2][1] + " " + result[1][1] / result[2][1]);
+    //println("" + result[0][2] / result[2][2] + " " + result[1][2] / result[2][2]);
+
 }
 
 public void draw() {
@@ -74,10 +83,19 @@ public void draw() {
             float[] posVec = new float[] {x, y, 1};
             float[] result = matrixProduct(TM, posVec);
             int resultX = round(result[0] / result[2]);
+            if (resultX < 0) {
+                resultX = cam.width - resultX;
+            }
+            resultX = resultX % cam.width;
             int resultY = round(result[1] / result[2]);
-            //try {
-            projection.pixels[x + y * projection.width] = cam.pixels[abs(resultX + resultY * cam.width) % (cam.width * cam.height)];
-            //} catch (Exception e) {}
+            if (resultY < 0) {
+                resultY = cam.height - resultY;
+            }
+            resultY = resultY % cam.height;
+
+            try {
+            projection.pixels[x + y * projection.width] = cam.pixels[resultX + resultY * cam.width];
+            } catch (Exception e) {}
         }
     }
 
@@ -114,14 +132,15 @@ public void mouseDragged() {
 }
 
 public void updateTMatrix() {
-    TM = inverseMatrix3x3(transformMatrix(rectangle[0][0], rectangle[0][1],
-                         rectangle[1][0], rectangle[1][1],
-                         rectangle[2][0], rectangle[2][1],
-                         rectangle[3][0], rectangle[3][1],
-                         0, projHeight,
+    TM = transformMatrix(0, projHeight,
                          projWidth, projHeight,
                          projWidth, 0,
-                         0, 0));
+                         0, 0,
+                         rectangle[0][0], rectangle[0][1],
+                         rectangle[1][0], rectangle[1][1],
+                         rectangle[2][0], rectangle[2][1],
+                         rectangle[3][0], rectangle[3][1]);
+    //TM = inverseMatrix3x3(TM);
 }
 
 public float dotProduct(float[] vector1, float[] vector2) {
@@ -175,9 +194,9 @@ public float[][] cofactor3x3(float[][] original) {
             -1 * (original[0][0] * original[2][1] - original[0][1] * original[2][0])
         },
         {
-            original[0][1] * original[1][0] - original[0][0] * original[1][1],
+            original[0][1] * original[1][2] - original[0][2] * original[1][1],
             -1 * (original[0][0] * original[1][2] - original[0][2] * original[1][0]),
-            original[0][0] * original[1][1] - original[1][0] * original[0][1]
+            original[0][0] * original[1][1] - original[0][1] * original[1][0]
         }
     };
 }
@@ -226,15 +245,15 @@ public float[][] transformMatrix(float aix, float aiy,
                           float cfx, float cfy,
                           float dfx, float dfy) {
 
-    float[][] Q2 = QMatrix(aix, aiy,
-                           bix, biy,
-                           cix, ciy,
-                           dix, diy);
-    float[][] Q1Inv = inverseMatrix3x3(QMatrix(afx, afy,
-                                               bfx, bfy,
-                                               cfx, cfy,
-                                               dfx, dfy));
-    float[][] TMatrix = matrixProduct3x3(Q1Inv, Q2);
+    float[][] Q2 = QMatrix(afx, afy,
+                           bfx, bfy,
+                           cfx, cfy,
+                           dfx, dfy);
+    float[][] Q1Inv = inverseMatrix3x3(QMatrix(aix, aiy,
+                                               bix, biy,
+                                               cix, ciy,
+                                               dix, diy));
+    float[][] TMatrix = matrixProduct3x3(Q2, Q1Inv);
     return TMatrix;
 }
   static public void main(String[] passedArgs) {

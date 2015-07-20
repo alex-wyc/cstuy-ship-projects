@@ -14,3 +14,6 @@ hs_err_pid*
 # vim backups
 .*.un~
 .*.swp
+
+# output for processing
+output/

@@ -74,8 +74,14 @@ void draw() {
             resultY = resultY % cam.height;
 
             try {
-            projection.pixels[x + y * projection.width] = cam.pixels[resultX + resultY * cam.width];
-            } catch (Exception e) {}
+                projection.pixels[x + y * projection.width] = cam.pixels[resultX + resultY * cam.width];
+            } catch (Exception e) {
+                println("(x, y)");
+                println("(" + x + ", " + y + ")");
+                println("(resultX, resultY)");
+                println("(" + resultX + ", " + resultY + ")");
+            }
+
         }
     }
 

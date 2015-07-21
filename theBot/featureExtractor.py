@@ -1,6 +1,7 @@
 import nltk
 import os
 import operator
+from nltk import word_tokenize
 
 output = open('PosKeywords.txt', 'w')
 freqDict = {}
@@ -15,11 +16,11 @@ def featureExtractor(document, increment):
             freqDict[word] = [increment, 1]
 
 for i in os.listdir('./tokens/pos'):
-    f = open('./tokens/pos/' + i, 'r').read().split()
+    f = nltk.pos_tag(open('./tokens/pos/' + i, 'r').read().split())
     featureExtractor(f, 1)
 
 for i in os.listdir('./tokens/neg'):
-    f = open('./tokens/neg/' + i, 'r').read().split()
+    f = nltk.pos_tag(open('./tokens/neg/' + i, 'r').read().split())
     featureExtractor(f, 0)
 
 for i in freqDict.keys():

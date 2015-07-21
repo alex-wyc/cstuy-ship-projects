@@ -24,7 +24,7 @@ for i in os.listdir('./tokens/neg'):
 
 for i in freqDict.keys():
     if int(freqDict[i][1]) > 13:
-        freqDict[i] = [float(freqDict[i][0]) / freqDict[i][1], freqDict[i][1] / 2000.]
+        freqDict[i] = [float(freqDict[i][0]) / 1000, freqDict[i][1] / 2000.]
     else:
         del freqDict[i]
 

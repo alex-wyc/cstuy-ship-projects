@@ -22,17 +22,33 @@ def featureExtractor(document, increment):
 def asciify(text):
     return "".join([i for i in text if ord(i) < 128])
 
-for i in os.listdir('./train/pos'):
-    f = nltk.pos_tag(asciify(open('./tokens/pos/' + i, 'r').read()).split())
-    featureExtractor(f, 1)
+files = os.listdir('./train/pos')
+total = float(len(files))
+done = 0
 
-for i in os.listdir('./train/neg'):
-    f = nltk.pos_tag(asciify(open('./tokens/neg/' + i, 'r').read()).split())
+for i in files:
+    f = nltk.pos_tag(asciify(open('./train/pos/' + i, 'r').read()).split())
+    featureExtractor(f, 1)
+    done += 1
+    if (done / total > 1. / 10):
+        os.system("echo -n '='")
+        done = 0
+
+files = os.listdir('./train/neg')
+assert total == float(len(files))
+done = 0
+
+for i in files:
+    f = nltk.pos_tag(asciify(open('./train/neg/' + i, 'r').read()).split())
     featureExtractor(f, 0)
+    done += 1
+    if (done / total > 1. / 10):
+        os.system("echo -n '='")
+        done = 0
 
 for i in freqDict.keys():
     if int(freqDict[i][1]) > 15:
-        freqDict[i] = bayesTheorem(0.5, freqDict[i][1] / 2000., freqDict[i][0] / 1000.)
+        freqDict[i] = bayesTheorem(0.5, freqDict[i][1] / (2 * total), freqDict[i][0] / total)
     else:
         del freqDict[i]
 

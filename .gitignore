@@ -17,3 +17,6 @@ hs_err_pid*
 
 # output for processing
 output/
+
+# c output files
+*.o

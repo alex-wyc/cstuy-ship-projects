@@ -4,11 +4,9 @@ import nltk
 import os
 import operator
 
-output = open('PosKeywords.txt', 'w')
+outputGood = open('PosKeywords.txt', 'w')
+outputBad = open('NegKeywords.txt', 'w')
 freqDict = {}
-
-def bayesTheorem(pOfGood, pOfWord, pOfWordAssumingGood):
-    return (pOfWordAssumingGood * pOfGood) / pOfWord
 
 def featureExtractor(document, increment):
     documentWords = set(document);
@@ -20,15 +18,18 @@ def featureExtractor(document, increment):
             freqDict[word] = [increment, 1]
 
 def asciify(text):
-    return "".join([i for i in text if ord(i) < 128])
+    return "".join([i for i in list(text) if isAlphanumeric(i)])
+
+def isAlphanumeric(char):
+    order = ord(char)
+    return (order >= 48 and order <= 57) or (order >= 65 and order <= 90) or (order >= 97 and order <= 122) or order == 9 or order == 32
 
 files = os.listdir('./train/pos')
 total = float(len(files))
-print total
 done = 0
 
 for i in files:
-    f = nltk.pos_tag(asciify(open('./train/pos/' + i, 'r').read()).split())
+    f = asciify(open('./train/pos/' + i, 'r').read()).split()
     featureExtractor(f, 1)
     done += 1
     if (done / total > 1. / 10):
@@ -40,23 +41,28 @@ assert total == float(len(files))
 done = 0
 
 for i in files:
-    f = nltk.pos_tag(asciify(open('./train/neg/' + i, 'r').read()).split())
-    featureExtractor(f, 0)
+    f = asciify(open('./train/neg/' + i, 'r').read()).split()
+    featureExtractor(f, -1)
     done += 1
     if (done / total > 1. / 10):
         os.system("echo -n '='")
         done = 0
 
 for i in freqDict.keys():
-    if int(freqDict[i][1]) > 15:
-        freqDict[i] = bayesTheorem(0.5, freqDict[i][1] / (2 * total), freqDict[i][0] / total)
-    else:
+    if int(freqDict[i][1]) < 20:
         del freqDict[i]
+    else:
+        freqDict[i] = int(freqDict[i][0])
 
 sortedDict = sorted(freqDict.items(), key = operator.itemgetter(1))
 
+#print sortedDict
+
 for i in sortedDict:
     if i[1] > 0:
-        output.write("%s \t\t %.4f\n" % (str(i[0]).strip(' '), i[1]))
+        outputGood.write("%s\n" % (str(i[0]).strip(' ')))
+    elif i[1] < 0:
+        outputBad.write("%s\n" % (str(i[0]).strip(' ')))
 
-output.close()
+outputGood.close()
+outputBad.close()

@@ -24,6 +24,7 @@ def asciify(text):
 
 files = os.listdir('./train/pos')
 total = float(len(files))
+print total
 done = 0
 
 for i in files:

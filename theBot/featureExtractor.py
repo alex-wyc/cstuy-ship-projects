@@ -48,6 +48,8 @@ for i in files:
         os.system("echo -n '='")
         done = 0
 
+print
+
 for i in freqDict.keys():
     if int(freqDict[i][1]) < 20:
         del freqDict[i]
@@ -57,6 +59,8 @@ for i in freqDict.keys():
 sortedDict = sorted(freqDict.items(), key = operator.itemgetter(1))
 
 #print sortedDict
+
+sortedDict = sortedDict[:500] + sortedDict[-500:]
 
 for i in sortedDict:
     if i[1] > 0:

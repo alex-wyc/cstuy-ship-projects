@@ -4,7 +4,7 @@ import nltk
 import os
 import operator
 
-output = open('PosKeywords.txt', 'w')
+output = open('PosDuples.txt', 'w')
 freqDict = {}
 
 def bayesTheorem(pOfGood, pOfWord, pOfWordAssumingGood):
@@ -28,7 +28,7 @@ print total
 done = 0
 
 for i in files:
-    f = nltk.pos_tag(asciify(open('./train/pos/' + i, 'r').read()).split())
+    f = nltk.pos_tag(list(bigrams(asciify(open('./train/pos/' + i, 'r').read()).split())))
     featureExtractor(f, 1)
     done += 1
     if (done / total > 1. / 10):
@@ -40,7 +40,7 @@ assert total == float(len(files))
 done = 0
 
 for i in files:
-    f = nltk.pos_tag(asciify(open('./train/neg/' + i, 'r').read()).split())
+    f = nltk.pos_tag(list(bigrams(asciify(open('./train/neg/' + i, 'r').read()).split())))
     featureExtractor(f, 0)
     done += 1
     if (done / total > 1. / 10):

@@ -4,7 +4,7 @@ import nltk
 import os
 import operator
 
-output = open('adjKeywords.txt', 'w')
+output = open('posKeywords.txt', 'w')
 freqDict = {}
 
 def bayesTheorem(pOfGood, pOfWord, pOfWordAssumingGood):
@@ -69,7 +69,7 @@ sortedDict = sorted(freqDict.items(), key = lambda x:x[1])
 for i in sortedDict:
 
     if i[1] > 0:
-        output.write("%s\t\t %.4f \n" % (str(i[0][0]).strip(' '),i[1]))
+        output.write("%s\t\t %.4f \n" % (str(i[0]).strip(' '),i[1]))
 
 
 output.close()

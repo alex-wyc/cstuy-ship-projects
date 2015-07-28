@@ -5,12 +5,29 @@ from sklearn.externals import joblib
 import os
 from sys import argv
 
+wordList = []
+
 try:
     movieReviewer = joblib.load("./SVM/movieReviewer%s.svm" % argv[1])
 except:
-    print "Please train with SVMTrain.py first!"
+    import SVMTrain
+    movieReviewer = joblib.load("./SVM/movieReviewer%s.svm" % argv[1])
 
-wordList = []
+def loadWords(mode):
+    if mode == 'U':
+        wordList = open('./SVM/PosKeywords.txt', 'r').read().split()
+        wordList += open('./SVM/NegKeywords.txt', 'r').read().split()
+        return wordList
+    elif mode == 'A':
+        wordList = open('adjKeywords.txt', 'r').read().split('\n')[:-1]
+        result = []
+        for i in wordList:
+            result.append(i.split()[0])
+        return result[:1000] + result[-1000:]
+
+os.system("echo -n 'loading keywords...\t\t'")
+wordList = loadWords(argv[1])
+os.system("echo -n '[done]\n'")
 
 def asciify(text):
     return "".join([i for i in list(text) if isAlphanumeric(i)])
@@ -18,27 +35,6 @@ def asciify(text):
 def isAlphanumeric(char):
     order = ord(char)
     return (order >= 48 and order <= 57) or (order >= 65 and order <= 90) or (order >= 97 and order <= 122) or order == 9 or order == 32
-
-
-os.system("echo -n 'loading keywords...\t\t'")
-# argv = command line arguments, argv[1] = type of training to be done
-# Possible arguments: -POS: part of speech, -U: unigrams, -A: adjectives
-if argv[1] == '-POS':
-    POSList = open('PosKeywords.txt', 'r').read().split("\n")
-    for i in POSList:
-        wordList.append("".join(i.split()[:-1]))
-
-elif argv[1] == '-U':
-    wordList = open("SVM/PosKeywords.txt", 'r').read().split()
-    wordList += open("SVM/NegKeywords.txt", 'r').read().split()
-
-elif argv[1] == 'A':
-    AdjList = open('Adjectives.txt', 'r').read().split("\n")
-    for i in AdjList:
-        wordList.append("".join(i.split()[:-1]))
-# this is so that it only takes in 1000 keywords.
-
-os.system("echo -n '[done]\n'")
 
 def intersection(keywords, text):
     resultVec = []

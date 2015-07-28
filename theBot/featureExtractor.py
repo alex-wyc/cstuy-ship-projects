@@ -61,6 +61,6 @@ sortedDict = sorted(freqDict.items(), key = operator.itemgetter(1))
 
 for i in sortedDict:
     if i[1] > 0:
-        output.write("%s\n" % (str(i[0]).strip(' ')))
+        output.write("%s\t\t%.4f\n" % (str(i[0]).strip(' '),i[1]))
 
 output.close()

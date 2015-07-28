@@ -27,7 +27,7 @@ total = float(len(files))
 done = 0
 testing = 0
 for i in files:
-    f = asciify(open('./train/pos/' + i, 'r').read()).split()
+    f = nltk.pos_tag(asciify(open('./train/pos/' + i, 'r').read()).split())
     featureExtractor(f, 1)
     done += 1
     if (done / total > 1. / 10):
@@ -44,7 +44,7 @@ assert total == float(len(files))
 done = 0
 
 for i in files:
-    f = asciify(open('./train/neg/' + i, 'r').read()).split()
+    f = nltk.pos_tag(asciify(open('./train/neg/' + i, 'r').read()).split())
     featureExtractor(f, 0)
     done += 1
     if (done / total > 1. / 10):

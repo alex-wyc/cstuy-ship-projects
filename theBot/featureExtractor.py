@@ -52,15 +52,19 @@ for i in files:
         done = 0
 
 for i in freqDict.keys():
-    if int(freqDict[i][1]) > 15:
-        freqDict[i] = bayesTheorem(0.5, freqDict[i][1] / (2 * total), freqDict[i][0] / total)
-    else:
+    if freqDict[i][1] < 20:
         del freqDict[i]
+    else:
+        freqDict[i].append(bayesTheorem(0.5, freqDict[i][1] / (2 * total), (freqDict[i][1] - (freqDict[i][1] - abs(freqDict[i][0]))/2) / total))
 
-sortedDict = sorted(freqDict.items(), key = operator.itemgetter(1))
+sortedDict = sorted(freqDict.items(), key = lambda x: x[1][0])
+
+sortedDict = sortedDict[:500] + sortedDict[-500:]
 
 for i in sortedDict:
+
     if i[1] > 0:
         output.write("%s\t\t%.4f\n" % (str(i[0]).strip(' '),i[1]))
+
 
 output.close()

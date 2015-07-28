@@ -1,500 +1,500 @@
-bad
-worst
-no
-even
-plot
-just
-movie
-acting
-nothing
-waste
-awful
-or
-any
-minutes
-dont
-they
-could
-only
-like
-if
-script
-have
-was
-thing
-stupid
-boring
-make
-so
-terrible
-poor
-would
-worse
-better
-supposed
-least
-were
-be
-I
-money
-didnt
-there
-this
-do
-off
-why
-Im
-reason
-been
-had
-then
-horrible
-anything
-should
-not
-cant
-ridiculous
-because
-looks
-2
-watching
-crap
-some
-guy
-wasnt
-something
-There
-couldnt
-actually
-your
-1
-poorly
-lame
-annoying
-idea
-pretty
-want
-If
-me
-instead
-but
-made
-horror
-dull
-at
-say
-trying
-mean
-someone
-enough
-doesnt
-get
-mess
-going
-Why
-decent
-guess
-wasted
-out
-attempt
-thats
-really
-half
-cheap
-point
-about
-theres
-isnt
-you
-whole
-badly
-low
-either
-up
-might
-save
-Oh
-did
-pointless
-Dont
-fails
-predictable
-than
-budget
-3
-problem
-completely
-else
-No
-got
-And
-that
-effects
-bunch
-br
-What
-wrong
-laughable
-Unfortunately
-dialogue
-much
-hour
-youre
-movies
-seems
-director
-So
-How
-pathetic
-wouldnt
-actors
-unless
-OK
-looked
-dumb
-Then
-Well
-know
-except
-lack
-tries
-joke
-look
-making
-The
-seemed
-garbage
-care
-none
-redeeming
-ever
-obvious
-gore
-saying
-excuse
-4
-silly
-flat
-video
-obviously
-kill
-looking
-on
-weak
-flick
-bored
-theyre
-sorry
-believe
-premise
-Even
-simply
-sex
-maybe
-plain
-seriously
-tried
-unfunny
-lines
-Not
-too
-effort
-thinking
-wonder
-bother
-wanted
-complete
-total
-apparently
-fake
-it
-write
-give
-to
-disappointing
-camera
-Avoid
-writing
-original
-unfortunately
-doing
-failed
-through
-here
-thought
-rest
-go
-guys
-Thats
-sit
-trash
-hell
-disappointment
-unbelievable
-review
-rent
-wooden
-around
-nowhere
-totally
-nudity
-jokes
-NOT
-scenes
-avoid
-kind
-said
-5
-start
-They
-Maybe
-First
-mediocre
-Theres
-whatsoever
-cut
-them
-anyone
-killed
-what
-sucks
-oh
-dialog
-arent
-painful
-writers
-running
-entire
-random
-bland
-piece
-producers
-down
-far
-laugh
-name
-try
-editing
-happens
-potential
-clich
-hoping
-dead
-basically
-call
-cheesy
-another
-lacks
-barely
-let
-seconds
-sort
-blame
-lousy
-spent
-insult
-sense
-blood
-embarrassing
-how
-anyway
-90
-Now
-think
-remotely
-neither
-absolutely
-whats
-filmmakers
-getting
-atrocious
-killing
-minute
-am
-hes
-sequel
-uninteresting
-myself
-disappointed
-Please
-female
-paid
-stuff
-IMDb
-Instead
-Ill
-tedious
-Or
-amateurish
-werent
-sure
-i
-moviebr
-dreadful
-read
-sat
-attempts
-410
-Just
-act
-straight
-put
-yourself
-left
-over
-good
-somewhere
-Do
-To
-honestly
-pile
-zero
-project
-bottom
-supposedly
-scary
-310
-end
-painfully
-people
-killer
-inept
-decided
-makers
-nonsense
-explanation
-material
-went
-Bad
-horribly
-god
-unconvincing
-rubbish
-rented
-shots
-mention
-okay
-funny
-stop
-holes
-suppose
-single
-naked
-brain
-110
-fact
-head
-remake
-few
-30
-rating
-interesting
-positive
-throw
-Did
-utterly
-tell
-skip
-crappy
-irritating
-ugly
-stupidity
-car
-word
-main
-turkey
-already
-terribly
-hours
-stick
-production
-absurd
-thin
-confusing
-porn
-shoot
-talking
-ludicrous
-NO
-wasting
-value
-slasher
-Id
-incoherent
-idiotic
-given
-For
-unnecessary
-pretentious
-five
-asleep
-nor
-itbr
-yeah
-costs
-nonexistent
-gets
-title
-case
-started
-youd
-whatever
-cover
-walk
-That
-talent
-screaming
-zombie
-possibly
-kills
-forgettable
-starts
-please
-line
-halfway
-all
-sitting
-development
-after
-Ive
-zombies
-away
-offensive
-amateur
-called
-Nothing
-utter
-credits
-disaster
-10
-appears
-hardly
-junk
-15
-below
-contrived
-pay
-falls
-shot
-monster
-ripoff
-seem
-tired
-body
-mildly
-Apparently
-explain
-suck
-bore
-shallow
-uninspired
-sadly
-210
-mistake
-None
-thrown
-explained
-loud
-saved
-felt
-ten
+bad 		 0.7383
+worst 		 0.8918
+no 		 0.5989
+even 		 0.5804
+plot 		 0.6212
+just 		 0.5601
+movie 		 0.5392
+acting 		 0.6105
+nothing 		 0.6697
+waste 		 0.9221
+awful 		 0.8890
+or 		 0.5478
+any 		 0.5826
+minutes 		 0.6837
+dont 		 0.5785
+they 		 0.5450
+could 		 0.5742
+only 		 0.5525
+like 		 0.5385
+if 		 0.5520
+script 		 0.6614
+have 		 0.5300
+was 		 0.5267
+thing 		 0.6116
+stupid 		 0.8186
+boring 		 0.7878
+make 		 0.5670
+so 		 0.5380
+terrible 		 0.8259
+poor 		 0.7593
+would 		 0.5471
+worse 		 0.8125
+better 		 0.5805
+supposed 		 0.7650
+least 		 0.6260
+were 		 0.5519
+be 		 0.5249
+I 		 0.5209
+money 		 0.6761
+didnt 		 0.5976
+there 		 0.5432
+this 		 0.5159
+do 		 0.5489
+off 		 0.5683
+why 		 0.5940
+Im 		 0.5974
+reason 		 0.6452
+been 		 0.5438
+had 		 0.5402
+then 		 0.5572
+horrible 		 0.8232
+anything 		 0.6091
+should 		 0.5679
+not 		 0.5199
+cant 		 0.5853
+ridiculous 		 0.8107
+because 		 0.5430
+looks 		 0.6270
+2 		 0.6450
+watching 		 0.5721
+crap 		 0.8355
+some 		 0.5269
+guy 		 0.6155
+wasnt 		 0.6258
+something 		 0.5598
+There 		 0.5647
+couldnt 		 0.6737
+actually 		 0.5688
+your 		 0.5561
+1 		 0.7002
+poorly 		 0.8867
+lame 		 0.8728
+annoying 		 0.7573
+idea 		 0.6258
+pretty 		 0.5778
+want 		 0.5707
+If 		 0.5560
+me 		 0.5314
+instead 		 0.6287
+but 		 0.5133
+made 		 0.5355
+horror 		 0.6163
+dull 		 0.8123
+at 		 0.5169
+trying 		 0.5921
+say 		 0.5487
+mean 		 0.6495
+someone 		 0.6129
+enough 		 0.5677
+doesnt 		 0.5528
+get 		 0.5303
+mess 		 0.8329
+going 		 0.5589
+Why 		 0.7332
+decent 		 0.6988
+guess 		 0.6700
+wasted 		 0.8642
+out 		 0.5188
+attempt 		 0.6868
+thats 		 0.5726
+really 		 0.5255
+half 		 0.6251
+cheap 		 0.7473
+point 		 0.5707
+about 		 0.5176
+theres 		 0.5953
+isnt 		 0.5652
+you 		 0.5152
+whole 		 0.5686
+badly 		 0.8339
+low 		 0.6718
+either 		 0.6105
+up 		 0.5212
+might 		 0.5698
+save 		 0.6876
+Oh 		 0.7394
+did 		 0.5397
+pointless 		 0.8909
+Dont 		 0.6959
+fails 		 0.7852
+predictable 		 0.7143
+than 		 0.5227
+budget 		 0.6476
+3 		 0.6436
+problem 		 0.6225
+completely 		 0.5944
+else 		 0.5914
+No 		 0.6326
+got 		 0.5556
+And 		 0.5383
+that 		 0.5083
+effects 		 0.5866
+bunch 		 0.7124
+br 		 0.5120
+What 		 0.5667
+wrong 		 0.5990
+laughable 		 0.8864
+Unfortunately 		 0.7178
+dialogue 		 0.5995
+much 		 0.5209
+hour 		 0.6474
+youre 		 0.5927
+movies 		 0.5263
+seems 		 0.5460
+director 		 0.5456
+So 		 0.5719
+How 		 0.6518
+pathetic 		 0.8241
+wouldnt 		 0.6381
+actors 		 0.5387
+unless 		 0.7648
+OK 		 0.7063
+looked 		 0.6519
+dumb 		 0.7679
+Then 		 0.6360
+Well 		 0.6090
+know 		 0.5273
+except 		 0.6327
+lack 		 0.6285
+tries 		 0.6015
+look 		 0.5376
+joke 		 0.7416
+making 		 0.5530
+The 		 0.5081
+seemed 		 0.6063
+garbage 		 0.8426
+care 		 0.5992
+none 		 0.6518
+ever 		 0.5274
+redeeming 		 0.9020
+obvious 		 0.6141
+gore 		 0.6861
+saying 		 0.6375
+excuse 		 0.7987
+4 		 0.6528
+silly 		 0.6537
+flat 		 0.7192
+video 		 0.5954
+obviously 		 0.6174
+kill 		 0.6169
+looking 		 0.5588
+on 		 0.5076
+weak 		 0.6785
+flick 		 0.6144
+bored 		 0.7279
+theyre 		 0.6074
+sorry 		 0.7071
+believe 		 0.5530
+premise 		 0.6541
+Even 		 0.5854
+simply 		 0.5652
+sex 		 0.5939
+maybe 		 0.5798
+plain 		 0.7116
+seriously 		 0.6457
+tried 		 0.6603
+unfunny 		 0.9055
+lines 		 0.5798
+Not 		 0.5678
+too 		 0.5196
+effort 		 0.6455
+thinking 		 0.6003
+wonder 		 0.6054
+bother 		 0.7936
+wanted 		 0.5905
+complete 		 0.6070
+total 		 0.6926
+apparently 		 0.6451
+fake 		 0.7521
+it 		 0.5053
+write 		 0.6706
+give 		 0.5356
+to 		 0.5046
+disappointing 		 0.7624
+camera 		 0.5739
+Avoid 		 0.9915
+writing 		 0.5911
+original 		 0.5429
+unfortunately 		 0.6372
+doing 		 0.5671
+failed 		 0.7181
+through 		 0.5241
+here 		 0.5252
+thought 		 0.5359
+rest 		 0.5557
+go 		 0.5239
+guys 		 0.5868
+Thats 		 0.6287
+sit 		 0.6387
+trash 		 0.7427
+hell 		 0.6083
+disappointment 		 0.7548
+unbelievable 		 0.7465
+review 		 0.6125
+rent 		 0.6683
+wooden 		 0.8076
+around 		 0.5294
+nowhere 		 0.7263
+totally 		 0.5866
+nudity 		 0.6990
+jokes 		 0.6174
+NOT 		 0.6764
+scenes 		 0.5225
+avoid 		 0.6914
+kind 		 0.5392
+said 		 0.5470
+5 		 0.6150
+start 		 0.5577
+They 		 0.5425
+Maybe 		 0.6350
+First 		 0.6150
+mediocre 		 0.7557
+Theres 		 0.5971
+whatsoever 		 0.8067
+cut 		 0.6110
+them 		 0.5153
+anyone 		 0.5411
+killed 		 0.5922
+what 		 0.5103
+sucks 		 0.8819
+oh 		 0.6873
+dialog 		 0.6426
+arent 		 0.5933
+painful 		 0.7239
+writers 		 0.6348
+running 		 0.5887
+entire 		 0.5596
+random 		 0.7762
+bland 		 0.7969
+piece 		 0.5618
+producers 		 0.6842
+down 		 0.5270
+far 		 0.5328
+laugh 		 0.5706
+name 		 0.5581
+try 		 0.5501
+editing 		 0.6243
+happens 		 0.5783
+potential 		 0.6306
+clich 		 0.7663
+hoping 		 0.6991
+dead 		 0.5705
+basically 		 0.6080
+call 		 0.5905
+cheesy 		 0.6514
+another 		 0.5227
+lacks 		 0.7073
+barely 		 0.6642
+let 		 0.5578
+seconds 		 0.7500
+sort 		 0.5600
+blame 		 0.7529
+lousy 		 0.9028
+spent 		 0.6381
+insult 		 0.8625
+sense 		 0.5376
+blood 		 0.6073
+embarrassing 		 0.8327
+how 		 0.5131
+anyway 		 0.6209
+90 		 0.7211
+Now 		 0.5772
+think 		 0.5142
+remotely 		 0.8615
+neither 		 0.6476
+filmmakers 		 0.6119
+absolutely 		 0.5565
+whats 		 0.6110
+getting 		 0.5471
+atrocious 		 0.9091
+killing 		 0.6167
+minute 		 0.6182
+am 		 0.5336
+hes 		 0.5346
+uninteresting 		 0.8515
+sequel 		 0.6110
+myself 		 0.5684
+disappointed 		 0.5950
+Please 		 0.7500
+female 		 0.5881
+paid 		 0.7128
+Ill 		 0.5928
+stuff 		 0.5694
+IMDb 		 0.6681
+Instead 		 0.6568
+tedious 		 0.8383
+Or 		 0.6525
+amateurish 		 0.8657
+werent 		 0.6501
+sure 		 0.5326
+i 		 0.5254
+moviebr 		 0.6008
+dreadful 		 0.8340
+read 		 0.5462
+sat 		 0.7468
+attempts 		 0.6077
+410 		 0.9641
+Just 		 0.5744
+act 		 0.5629
+straight 		 0.5982
+put 		 0.5315
+yourself 		 0.5803
+left 		 0.5361
+over 		 0.5152
+good 		 0.5074
+somewhere 		 0.6427
+Do 		 0.6705
+To 		 0.5542
+honestly 		 0.7090
+pile 		 0.8326
+zero 		 0.8230
+project 		 0.6381
+bottom 		 0.7034
+supposedly 		 0.6846
+scary 		 0.5916
+310 		 0.9441
+end 		 0.5143
+painfully 		 0.7544
+people 		 0.5106
+killer 		 0.5772
+inept 		 0.8373
+decided 		 0.5926
+makers 		 0.6724
+nonsense 		 0.7672
+explanation 		 0.7215
+material 		 0.5812
+went 		 0.5478
+Bad 		 0.7612
+horribly 		 0.7860
+god 		 0.6699
+unconvincing 		 0.8492
+rubbish 		 0.8035
+rented 		 0.7100
+shots 		 0.5742
+mention 		 0.5808
+okay 		 0.6527
+funny 		 0.5200
+stop 		 0.5644
+holes 		 0.7069
+suppose 		 0.6560
+single 		 0.5688
+naked 		 0.6974
+brain 		 0.6868
+110 		 0.8864
+fact 		 0.5194
+head 		 0.5448
+remake 		 0.6257
+few 		 0.5166
+rating 		 0.5896
+interesting 		 0.5223
+throw 		 0.6675
+positive 		 0.6288
+30 		 0.6362
+Did 		 0.7410
+utterly 		 0.6371
+tell 		 0.5377
+skip 		 0.7930
+crappy 		 0.8093
+irritating 		 0.7538
+ugly 		 0.7003
+stupidity 		 0.8786
+car 		 0.5613
+word 		 0.5684
+main 		 0.5296
+turkey 		 0.9161
+already 		 0.5441
+terribly 		 0.7101
+stick 		 0.6449
+hours 		 0.5622
+production 		 0.5401
+absurd 		 0.7078
+thin 		 0.6850
+confusing 		 0.6592
+porn 		 0.7319
+shoot 		 0.6502
+talking 		 0.5681
+ludicrous 		 0.8223
+NO 		 0.8508
+wasting 		 0.8994
+slasher 		 0.7042
+value 		 0.6187
+Id 		 0.5548
+For 		 0.5343
+incoherent 		 0.9500
+idiotic 		 0.8706
+given 		 0.5325
+unnecessary 		 0.6877
+pretentious 		 0.7323
+five 		 0.5741
+asleep 		 0.7793
+nor 		 0.5849
+itbr 		 0.5649
+yeah 		 0.7085
+costs 		 0.7709
+nonexistent 		 0.8596
+gets 		 0.5189
+title 		 0.5429
+case 		 0.5392
+started 		 0.5649
+youd 		 0.6465
+whatever 		 0.5959
+cover 		 0.6149
+walk 		 0.6190
+That 		 0.5379
+talent 		 0.5602
+screaming 		 0.7297
+zombie 		 0.7315
+possibly 		 0.5812
+kills 		 0.6180
+forgettable 		 0.7950
+starts 		 0.5446
+please 		 0.5942
+line 		 0.5341
+halfway 		 0.7368
+all 		 0.5042
+sitting 		 0.6187
+development 		 0.5887
+after 		 0.5100
+Ive 		 0.5220
+zombies 		 0.7544
+away 		 0.5206
+offensive 		 0.7386
+amateur 		 0.8000
+Nothing 		 0.6524
+called 		 0.5404
+utter 		 0.7251
+credits 		 0.5744
+disaster 		 0.6638
+10 		 0.5295
+appears 		 0.5575
+hardly 		 0.5900
+junk 		 0.8011
+15 		 0.6120
+below 		 0.6918
+contrived 		 0.7000
+pay 		 0.5883
+falls 		 0.5567
+shot 		 0.5302
+monster 		 0.6310
+ripoff 		 0.8022
+seem 		 0.5233
+tired 		 0.6288
+body 		 0.5582
+mildly 		 0.7739
+Apparently 		 0.7700
+shallow 		 0.6776
+explain 		 0.6067
+suck 		 0.8176
+bore 		 0.7547
+uninspired 		 0.8600
+sadly 		 0.6337
+mistake 		 0.6259
+None 		 0.7465
+thrown 		 0.6108
+210 		 0.9908
+explained 		 0.6721
+loud 		 0.6152
+saved 		 0.6732
+felt 		 0.5368
+ten 		 0.5694

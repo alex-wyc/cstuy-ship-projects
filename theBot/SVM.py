@@ -4,6 +4,7 @@ from sklearn import svm
 from sklearn.externals import joblib
 import os
 from sys import argv
+from nltk import pos_tag as pt
 
 wordList = []
 
@@ -24,6 +25,13 @@ def loadWords(mode):
         for i in wordList:
             result.append(i.split()[0])
         return result[:1000] + result[-1000:]
+    elif mode == 'P':
+        wordList = open('PosKeywords.txt', 'r').read().split('\n')[:-1]
+        result = []
+        for i in wordList:
+            result.append(eval("".join(i.split()[:-1])))
+        return result[:1000] + result[-1000:]
+
 
 os.system("echo -n 'loading keywords...\t\t'")
 wordList = loadWords(argv[1])
@@ -48,6 +56,8 @@ def intersection(keywords, text):
 
 if __name__ == '__main__':
     review = asciify(open(raw_input("Please enter the review location: "), 'r').read()).split()
+    if argv[1] == 'P':
+        review = pt(review)
     X = intersection(wordList, review)
     result = movieReviewer.predict(X)[0]
 

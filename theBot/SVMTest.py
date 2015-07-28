@@ -5,6 +5,7 @@ from sklearn import svm
 from sklearn.externals import joblib
 import os
 from sys import argv
+from nltk import pos_tag as pt
 
 #try:
 #    movieReviewer = joblib.load("movieReviewer.svm")
@@ -26,6 +27,8 @@ correct = 0
 
 for i in files:
     f = asciify(open('./test/pos/' + i, 'r').read()).split()
+    if argv[1] == 'P':
+        f = pt(f)
     result = movieReviewer.predict(intersection(wordList, f))[0]
     if result > 0:
         correct += 1
@@ -38,6 +41,8 @@ files = os.listdir('./test/neg')[:2000]
 
 for i in files:
     f = asciify(open('./test/neg/' + i, 'r').read()).split()
+    if argv[1] == 'P':
+        f = pt(f)
     result = movieReviewer.predict(intersection(wordList, f))[0]
     if result < 0:
         correct += 1

@@ -4,6 +4,7 @@ from sklearn import svm
 from sklearn.externals import joblib
 import os
 from sys import argv
+from nltk import pos_tag as pt
 
 X = []
 y = []
@@ -19,6 +20,12 @@ def loadWords(mode):
         result = []
         for i in wordList:
             result.append(i.split()[0])
+        return result[:1000] + result[-1000:]
+    elif mode == 'P':
+        wordList = open('PosKeywords.txt', 'r').read().split('\n')[:-1]
+        result = []
+        for i in wordList:
+            result.append(eval("".join(i.split()[:-1])))
         return result[:1000] + result[-1000:]
 
 os.system("echo -n 'loading keywords...\t\t'")
@@ -50,6 +57,8 @@ progress = 0
 
 for i in files:
     f = asciify(open('./train/pos/' + i, 'r').read()).split()
+    if argv[1] == 'P':
+        f = pt(f)
     X.append(intersection(wordList, f))
     y.append(1)
     done += 1
@@ -61,6 +70,8 @@ files = os.listdir('./train/neg')[:3500]
 
 for i in files:
     f = asciify(open('./train/neg/' + i, 'r').read()).split()
+    if argv[1] == 'P':
+        f = pt(f)
     X.append(intersection(wordList, f))
     y.append(-1)
     done += 1

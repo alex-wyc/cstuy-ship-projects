@@ -55,7 +55,7 @@ for i in freqDict.keys():
     if freqDict[i][1] < 20:
         del freqDict[i]
     else:
-        freqDict[i]=(bayesTheorem(0.5, freqDict[i][1] / (2 * total), (freqDict[i][1] - (freqDict[i][1] - abs(freqDict[i][0]))/2) / total))
+        freqDict[i]=(bayesTheorem(0.5, freqDict[i][1] / (2*total), (freqDict[i][0]/total)))
 
 sortedDict = sorted(freqDict.items(), key = lambda x:x[1])
 

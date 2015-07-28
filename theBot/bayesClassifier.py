@@ -27,7 +27,6 @@ def percentPositive(review):
     tokens = nltk.pos_tag(nltk.word_tokenize(review))
     posWordList = intersection((w[0] for w in tokens), posKeywordList.keys())
     negWordList = intersection((w[0] for w in tokens), negKeywordList.keys())
-    
     exp = 0
     for k in posWordList:
         exp += math.log(1 - posKeywordList[k]) - math.log(posKeywordList[k])

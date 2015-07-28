@@ -13,11 +13,12 @@ def bayesTheorem(pOfGood, pOfWord, pOfWordAssumingGood):
 def featureExtractor(document, increment):
     documentWords = set(document);
     for word in documentWords:
-        if word in freqDict:
-            freqDict[word][0] += increment
-            freqDict[word][1] += 1
-        else:
-            freqDict[word] = [increment, 1]
+        if word[1] == 'JJ':
+            if word in freqDict:
+                freqDict[word][0] += increment
+                freqDict[word][1] += 1
+            else:
+                freqDict[word] = [increment, 1]
 
 def asciify(text):
     return "".join([i for i in list(text) if isAlphanumeric(i)])
@@ -40,7 +41,7 @@ for i in files:
         done = 0
     if(testing == total):
         os.system("echo -n 'test'")
-    
+
 os.system("echo -n 'abc'")
 
 files = os.listdir('./train/neg')
@@ -57,8 +58,6 @@ for i in files:
 
 for i in freqDict.keys():
     if freqDict[i][1] < 20:
-        del freqDict[i]
-    elif freqDict[i][0][1] != 'JJ':
         del freqDict[i]
     else:
         freqDict[i]=(bayesTheorem(0.5, freqDict[i][1] / (2*total), (freqDict[i][0]/total)))

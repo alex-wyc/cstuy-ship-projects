@@ -59,7 +59,7 @@ for i in freqDict.keys():
 
 sortedDict = sorted(freqDict.items(), key = lambda x: x[1][0])
 
-sortedDict = sortedDict[:500] + sortedDict[-500:]
+
 
 for i in sortedDict:
 

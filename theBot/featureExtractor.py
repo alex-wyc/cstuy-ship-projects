@@ -4,7 +4,7 @@ import nltk
 import os
 import operator
 
-output = open('PosKeywords.txt', 'w')
+output = open('Keywords.txt', 'w')
 freqDict = {}
 
 def bayesTheorem(pOfGood, pOfWord, pOfWordAssumingGood):
@@ -27,7 +27,7 @@ total = float(len(files))
 done = 0
 testing = 0
 for i in files:
-    f = nltk.pos_tag(asciify(open('./train/pos/' + i, 'r').read()).split())
+    f = asciify(open('./train/pos/' + i, 'r').read()).split()
     featureExtractor(f, 1)
     done += 1
     if (done / total > 1. / 10):
@@ -44,7 +44,7 @@ assert total == float(len(files))
 done = 0
 
 for i in files:
-    f = nltk.pos_tag(asciify(open('./train/neg/' + i, 'r').read()).split())
+    f = asciify(open('./train/neg/' + i, 'r').read()).split()
     featureExtractor(f, 0)
     done += 1
     if (done / total > 1. / 10):
@@ -55,7 +55,7 @@ for i in freqDict.keys():
     if freqDict[i][1] < 20:
         del freqDict[i]
     else:
-        freqDict[i].append(bayesTheorem(0.5, freqDict[i][1] / (2 * total), (freqDict[i][1] - (freqDict[i][1] - abs(freqDict[i][0]))/2) / total))
+        freqDict[i]=(bayesTheorem(0.5, freqDict[i][1] / (2 * total), (freqDict[i][1] - (freqDict[i][1] - abs(freqDict[i][0]))/2) / total))
 
 sortedDict = sorted(freqDict.items(), key = lambda x: x[1][0])
 
@@ -64,7 +64,7 @@ sortedDict = sorted(freqDict.items(), key = lambda x: x[1][0])
 for i in sortedDict:
 
     if i[1] > 0:
-        output.write("%s\t\t%.4f\n" % (str(i[0]).strip(' '),i[1]))
+        output.write("%s\t\t %.4f \n" % (str(i[0]).strip(' '),i[1]))
 
 
 output.close()

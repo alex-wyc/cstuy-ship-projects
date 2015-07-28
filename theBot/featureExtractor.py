@@ -4,7 +4,7 @@ import nltk
 import os
 import operator
 
-output = open('Keywords.txt', 'w')
+output = open('adjKeywords.txt', 'w')
 freqDict = {}
 
 def bayesTheorem(pOfGood, pOfWord, pOfWordAssumingGood):
@@ -20,7 +20,11 @@ def featureExtractor(document, increment):
             freqDict[word] = [increment, 1]
 
 def asciify(text):
-    return "".join([i for i in text if ord(i) < 128])
+    return "".join([i for i in list(text) if isAlphanumeric(i)])
+
+def isAlphanumeric(char):
+    order = ord(char)
+    return (order >= 48 and order <= 57) or (order >= 65 and order <= 90) or (order >= 97 and order <= 122) or order == 9 or order == 32
 
 files = os.listdir('./train/pos')
 total = float(len(files))
@@ -54,6 +58,8 @@ for i in files:
 for i in freqDict.keys():
     if freqDict[i][1] < 20:
         del freqDict[i]
+    elif freqDict[i][0][1] != 'JJ':
+        del freqDict[i]
     else:
         freqDict[i]=(bayesTheorem(0.5, freqDict[i][1] / (2*total), (freqDict[i][0]/total)))
 
@@ -64,7 +70,7 @@ sortedDict = sorted(freqDict.items(), key = lambda x:x[1])
 for i in sortedDict:
 
     if i[1] > 0:
-        output.write("%s\t\t %.4f \n" % (str(i[0]).strip(' '),i[1]))
+        output.write("%s\t\t %.4f \n" % (str(i[0][0]).strip(' '),i[1]))
 
 
 output.close()

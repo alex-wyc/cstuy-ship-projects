@@ -8,6 +8,9 @@ outputGood = open('PosKeywords.txt', 'w')
 outputBad = open('NegKeywords.txt', 'w')
 freqDict = {}
 
+def bayesTheorem(pOfGood, pOfWord, pOfWordAssumingGood):
+    return (pOfWordAssumingGood * pOfGood) / pOfWord
+
 def featureExtractor(document, increment):
     documentWords = set(document);
     for word in documentWords:
@@ -48,25 +51,21 @@ for i in files:
         os.system("echo -n '='")
         done = 0
 
-print
-
 for i in freqDict.keys():
-    if int(freqDict[i][1]) < 20:
+    if freqDict[i][1] < 20:
         del freqDict[i]
     else:
-        freqDict[i] = int(freqDict[i][0])
+        freqDict[i].append(bayesTheorem(0.5, freqDict[i][1] / (2 * total), (freqDict[i][1] - (freqDict[i][1] - abs(freqDict[i][0]))/2) / total))
 
-sortedDict = sorted(freqDict.items(), key = operator.itemgetter(1))
-
-#print sortedDict
+sortedDict = sorted(freqDict.items(), key = lambda x: x[1][0])
 
 sortedDict = sortedDict[:500] + sortedDict[-500:]
 
 for i in sortedDict:
-    if i[1] > 0:
-        outputGood.write("%s\n" % (str(i[0]).strip(' ')))
-    elif i[1] < 0:
-        outputBad.write("%s\n" % (str(i[0]).strip(' ')))
+    if float(i[1][0]) > 0:
+        outputGood.write("%s \t\t %.4f\n" % (str(i[0]).strip(' '), i[1][2]))
+    elif float(i[1][0]) < 0:
+        outputBad.write("%s \t\t %.4f\n" % (str(i[0]).strip(' '), i[1][2]))
 
 outputGood.close()
 outputBad.close()

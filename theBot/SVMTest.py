@@ -19,7 +19,7 @@ from nltk import pos_tag as pt
 #os.system("echo -n '[done]\n'")
 
 os.system("echo -n 'testing files:\n[00%'")
-files = os.listdir('./test/pos')[:2000]
+files = os.listdir('./test/pos')[:3000]
 total = float(len(files)) * 2
 done = 0
 progress = 0
@@ -35,9 +35,9 @@ for i in files:
     done += 1
     if (done / total * 100 >= progress + 5):
         progress += 5
-        os.system("echo -n '\b\b\b=%2d%%'" % progress)
+        #os.system("echo -n '\b\b\b=%2d%%'" % progress)
 
-files = os.listdir('./test/neg')[:2000]
+files = os.listdir('./test/neg')[:3000]
 
 for i in files:
     f = asciify(open('./test/neg/' + i, 'r').read()).split()

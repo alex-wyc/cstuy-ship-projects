@@ -7,14 +7,18 @@ from sys import argv
 from nltk import pos_tag as pt
 
 wordList = []
+movieReviewer = None
 
-try:
-    movieReviewer = joblib.load("./SVM/movieReviewer%s.svm" % argv[1])
-except:
-    import SVMTrain
-    movieReviewer = joblib.load("./SVM/movieReviewer%s.svm" % argv[1])
+def loadModule(mode):
+    global movieReviewer
+    try:
+        movieReviewer = joblib.load("./SVM/movieReviewer%s.svm" % mode)
+    except:
+        import SVMTrain
+        movieReviewer = joblib.load("./SVM/movieReviewer%s.svm" % mode)
 
 def loadWords(mode):
+    global wordList
     if mode == 'U':
         wordList = open('./SVM/PosKeywords.txt', 'r').read().split()
         wordList += open('./SVM/NegKeywords.txt', 'r').read().split()
@@ -24,18 +28,13 @@ def loadWords(mode):
         result = []
         for i in wordList:
             result.append(i.split()[0])
-        return result[:1000] + result[-1000:]
+        wordList = result[:1000] + result[-1000:]
     elif mode == 'P':
         wordList = open('PosKeywords.txt', 'r').read().split('\n')[:-1]
         result = []
         for i in wordList:
             result.append(eval("".join(i.split()[:-1])))
-        return result[:1000] + result[-1000:]
-
-
-os.system("echo -n 'loading keywords...\t\t'")
-wordList = loadWords(argv[1])
-os.system("echo -n '[done]\n'")
+        wordList = result[:1000] + result[-1000:]
 
 def asciify(text):
     return "".join([i for i in list(text) if isAlphanumeric(i)])
@@ -55,6 +54,11 @@ def intersection(keywords, text):
     return resultVec
 
 if __name__ == '__main__':
+    loadModule(argv[1])
+    os.system("echo -n 'loading keywords...\t\t'")
+    wordList = loadWords(argv[1])
+    os.system("echo -n '[done]\n'")
+
     review = asciify(open(raw_input("Please enter the review location: "), 'r').read()).split()
     if argv[1] == 'P':
         review = pt(review)

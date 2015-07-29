@@ -1,22 +1,14 @@
 #!/usr/bin/python
 
-from SVM import asciify, intersection, movieReviewer, wordList
-from sklearn import svm
+import SVM
 from sklearn.externals import joblib
 import os
 from sys import argv
-from nltk import pos_tag as pt
 
-#try:
-#    movieReviewer = joblib.load("movieReviewer.svm")
-#except:
-#    import SVMTrain
-#    movieReviewer = joblib.load("movieReviewer.svm")
-
-#os.system("echo -n 'loading keywords...\t\t'")
-#wordList = open('PosKeywords.txt', 'r').read().split()
-#wordList += open('NegKeywords.txt', 'r').read().split()
-#os.system("echo -n '[done]\n'")
+os.system("echo -n 'loading keywords...\t\t'")
+SVM.loadModule(argv[1])
+SVM.loadWords(argv[1])
+os.system("echo -n '[done]\n'")
 
 os.system("echo -n 'testing files:\n[00%'")
 files = os.listdir('./test/pos')[:3000]
@@ -26,10 +18,8 @@ progress = 0
 correct = 0
 
 for i in files:
-    f = asciify(open('./test/pos/' + i, 'r').read()).split()
-    if argv[1] == 'P':
-        f = pt(f)
-    result = movieReviewer.predict(intersection(wordList, f))[0]
+    f = SVM.asciify(open('./test/pos/' + i, 'r').read()).split()
+    result = SVM.movieReviewer.predict(SVM.intersection(SVM.wordList, f))[0]
     if result > 0:
         correct += 1
     done += 1
@@ -40,10 +30,8 @@ for i in files:
 files = os.listdir('./test/neg')[:3000]
 
 for i in files:
-    f = asciify(open('./test/neg/' + i, 'r').read()).split()
-    if argv[1] == 'P':
-        f = pt(f)
-    result = movieReviewer.predict(intersection(wordList, f))[0]
+    f = SVM.asciify(open('./test/neg/' + i, 'r').read()).split()
+    result = SVM.movieReviewer.predict(SVM.intersection(SVM.wordList, f))[0]
     if result < 0:
         correct += 1
     done += 1

@@ -6,6 +6,7 @@ import math
 from sys import argv
 
 review = "review goes here!!!"
+partOfSpeech = False
 
 posKeywordList = {}
 
@@ -37,7 +38,7 @@ def intersection(list1, list2):
 
 def percentPositive(review):
     tokens = asciify(review).split()
-    if argv[1] == 'P':
+    if partOfSpeech:
         tokens = nltk.pos_tag(tokens)
     posWordList = intersection(tokens, posKeywordList.keys())
     exp = 0
@@ -50,6 +51,8 @@ def asciify(text):
 
 if __name__ == '__main__':
     loadData(argv[1])
+    if argv[1] == 'P':
+        partOfSpeech = True
     reviewLoc = raw_input("Please enter a route to the review: ")
     review = asciify(open(reviewLoc, 'r').read())
     print "%.2f%% of a great movie." % (percentPositive(review) * 100)

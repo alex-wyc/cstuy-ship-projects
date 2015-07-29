@@ -6,7 +6,7 @@ att = open('DATA.csv').read()
 
 numLines = 0
 
-l = att.split('\n')
+l = att.split('\n')[:-1]
 numLines = len(l)
 attributes = []
 
@@ -20,10 +20,10 @@ for element in l:
 samples = []
 x = 0
 while (x < numLines/2):
-    samples[x] = 1
+    samples.append(1)
     x = x + 1
 while (x < numLines):
-    samples[x] = -1
+    samples.append(-1)
     x = x + 1
 
 clf = tree.DecisionTreeClassifier()

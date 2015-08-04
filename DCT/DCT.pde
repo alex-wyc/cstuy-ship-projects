@@ -6,9 +6,10 @@ float[][] b;
 
 void setup() {
     size(300, 300);
-    PImage img = loadImage("./superoctocat.jpg");
+    background(255);
+    PImage img = loadImage("./DCT.jpg");
     img.resize(300, 300);
-    background(img);
+    image(img, 0, 0);
     updatePixels();
     r = new float[width][height];
     g = new float[width][height];
@@ -48,6 +49,10 @@ void keyTyped() {
         lowPass(g, 10);
         lowPass(b, 10);
         invDCT();
+   }
+   
+   if (key == 's') {
+     save("DCT.jpg");
    }
 }
 

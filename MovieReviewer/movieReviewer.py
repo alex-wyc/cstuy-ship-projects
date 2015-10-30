@@ -1,3 +1,6 @@
+#!/usr/bin/python
+#!C:\Python27\python
+
 import SVM
 import bayesClassifier
 from sklearn import tree

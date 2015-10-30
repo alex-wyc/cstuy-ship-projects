@@ -10,3 +10,4 @@ Technology for Urban Youth Summer Hacker Immersion Program)
 - Projection: A projective transformation program written in processing
 - MovieReviewer: Text comprehension/machine learning program written in python
   that tries to understand the true meaning of movie reviews
+    - more information avaliable in the README file within the repository
